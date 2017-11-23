@@ -156,6 +156,29 @@ aside {
     width: 100%;
 }
 
+.lightbox {
+    width: 60%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -30%;
+    top: 1rem;
+    padding: 1rem;
+}
+
+.lightbox img {
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+.lightbox a {
+    color: #000;
+    position: absolute;
+    right: 1rem;
+    font-size: 2em;
+    text-decoration: none;
+}
 
 /* ==========================================================================
    Media Queries

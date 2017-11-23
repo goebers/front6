@@ -14,6 +14,7 @@
  </li>
  */
 // After the loop print the HTML into <ul> element using innerHTML.
+
 const showImages = () => {
   const ul = document.querySelector('ul');
 
@@ -33,7 +34,54 @@ const showImages = () => {
         </li>`;
     });
     ul.innerHTML = html;
+    preventA();
   });
 };
 
+function preventA() {
+  const link = document.querySelectorAll('a');
+
+  console.log(link);
+
+  link.forEach(function(evt) {
+    evt.addEventListener('click', function(i) {
+      i.preventDefault();
+    });
+  });
+}
+
+function modalShow() {
+
+  const main = document.querySelector('main');
+
+  main.addEventListener('click', function(evt) {
+
+    let clickedElem = event.target;
+
+    const modalDiv = document.querySelector('#modal');
+    const modalImg = document.querySelector('#modalImg');
+
+    if (clickedElem.getAttribute('src') != null) {
+      modalImg.setAttribute('src', clickedElem.parentNode.getAttribute('href'));
+      modalDiv.classList.remove('hidden');
+      modalDiv.classList.add('lightbox');
+      modalDiv.classList.add('animated');
+      modalDiv.classList.add('zoomIn');
+    }
+  });
+}
+
+function modalHide() {
+  const closeBtn = document.querySelector('.closeBtn');
+  const modalDiv = document.querySelector('#modal');
+
+  closeBtn.addEventListener('click',function() {
+    modalDiv.classList.add('hidden');
+    modalDiv.classList.remove('animated');
+    modalDiv.classList.remove('zoomIn');
+  })
+}
+
 showImages();
+modalShow();
+modalHide();
